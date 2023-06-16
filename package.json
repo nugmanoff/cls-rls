@@ -1,6 +1,6 @@
 {
-  "name": "@avallone-io/rls",
-  "version": "2.0.4",
+  "name": "@nugmanoff/cls-rls",
+  "version": "1.0.0",
   "description": "Row level security package for TypeORM and NestJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,14 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Avallone-io/rls.git"
+    "url": "git@github.com:nugmanoff/cls-rls.git"
   },
-  "author": "Raul Stelescu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Avallone-io/rls/issues"
-  },
-  "homepage": "https://github.com/Avallone-io/rls#readme",
+  "author": "Aidar Nugmanoff",
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
@@ -105,5 +101,8 @@
       "source-map-support/register"
     ],
     "recursive": true
+  },
+  "dependencies": {
+    "nestjs-cls": "^3.4.0"
   }
 }

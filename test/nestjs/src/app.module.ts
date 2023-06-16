@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -9,7 +9,7 @@ import { Request } from 'express';
 import { Post } from 'test/util/entity/Post';
 import { Category } from 'test/util/entity/Category';
 import { PostRepository } from './post.repository';
-
+import { ClsMiddleware, ClsModule } from 'nestjs-cls';
 const configs = getTypeOrmConfig();
 
 @Module({
@@ -34,4 +34,8 @@ const configs = getTypeOrmConfig();
   controllers: [AppController],
   providers: [AppService, PostRepository],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(ClsMiddleware).forRoutes('(.*)');
+  }
+}

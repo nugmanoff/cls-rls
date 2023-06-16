@@ -24,6 +24,7 @@ import {
 } from 'test/util/test-utils';
 import { DataSource } from 'typeorm';
 import Sinon = require('sinon');
+import { ClsMiddleware } from 'nestjs-cls';
 
 const fetch = Fetch.default;
 const configs = getTypeOrmConfig();

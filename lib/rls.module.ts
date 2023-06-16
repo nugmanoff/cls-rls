@@ -18,6 +18,7 @@ import { createTypeormRLSProviders } from './rls.provider';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { EntitiesMetadataStorage } from '@nestjs/typeorm/dist/entities-metadata.storage';
 import { DEFAULT_DATA_SOURCE_NAME } from '@nestjs/typeorm/dist/typeorm.constants';
+import { CLS_REQ } from 'nestjs-cls';
 
 @Global()
 @Module({})
@@ -55,8 +56,7 @@ export class RLSModule {
   ): DynamicModule {
     const rlsProvider: Provider = {
       provide: TENANT_CONNECTION,
-      inject: [REQUEST, DataSource, ...injectServices],
-      scope: Scope.REQUEST,
+      inject: [CLS_REQ, DataSource, ...injectServices],
       useFactory: async (request: Request, connection: DataSource, ...args) => {
         const tenantModelOptions: TenancyModelOptions = await extractTenant(
           request,
