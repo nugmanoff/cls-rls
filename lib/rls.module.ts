@@ -3,6 +3,7 @@ import {
   DynamicModule,
   ForwardReference,
   Global,
+  Inject,
   Module,
   Provider,
   Scope,
